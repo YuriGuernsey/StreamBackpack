@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>StreamBackpack</title>
+  <meta name="description" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css?family=Pangolin|Open+Sans" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="mobile.css" /> 
+
+  </head>
+
+<body>
+  <!--[if lt IE 7]>
+      <p class="browsehappy">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="#">upgrade your browser</a> to improve your experience.
+      </p>
+    <![endif]-->
+  <header>
+    <nav> <a id="logo" href="/">StreamBackpack</a>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <div data-netlify-identity-menu></div>
+
+      </ul>
+    </nav>
+  </header>
+  <section class="introduction">
+    <h1>All the tools for your streaming needs</h1> <small class="line1">A huge list of tools, tutorials, and etc to help you enhance your streaming career/hobby.</section>
+  <section class="instuctionBackground"></section>
+  <section id="app">
+    <h2>Explore the list of tools made for you</h2>
+    <!-- <div class="filters"> <small>Filter by Category</small>
+      <br/>
+      <button class="filterBtn" data-value="Filter1">Website</button>
+      <button class="filterBtn" data-value="Filter2">Applications</button>
+      <button class="filterBtn" data-value="Filter3">Software</button>
+      <button class="filterBtn" data-value="Filter4">VR/AR</button>
+      <button class="filterBtn selected" data-value="All">All</button>
+    </div> -->
+    <p class="noResults" v-if="(noResults === true)">sorry no results found </p>
+    <template v-for="(projects, index) in json.records">
+      <!-- -->
+      <div class="ProductCards" v-bind:id="projects['fields'].FilterID">
+        <div class="content">
+          <div v-if="(projects['fields'].Live === true)" class="liveBanner"><a v-bind:href="projects['fields'].ProjectURL" target="_blank" rel="noopener noreferrer">Live</a></div>
+          <h4>{{ projects["fields"].ProjectTitle }}</h4>
+          <p class="description"><strong>Description:</strong><br/>{{ projects["fields"].ProjectDescription }}</p>
+          <p class="description"><strong>Why I need help:</strong><br/>{{ projects["fields"].ShortDescription }}</p>
+          <small>Contact</small>
+          <br />
+          <p style="word-break: break-word;">{{projects['fields'].UserEmail}}</p><br /><br/>
+          <p style="word-break: break-word;"> {{projects['fields'].UserSocial}}</p>
+          <!--<div class="contactShare"> <a id="contact" href="javascript:" onclick="showContact()">Contact
+             <div id="contactDetails"> <a v-bind:href="'mailto:' + projects['fields'].UserEmail"  target="_blank" rel="noopener noreferrer">Email</a> </div>
+            </a>  
+           
+            <a id="share" href="javascript:" onclick="showShare()">Share  <div id="ShareProject"> 
+          
+          </div></a>
+          </div>-->
+
+        </div>
+      </div>
+      <!-- -->
+    </template>
+
+  </section>
+  <footer>
+    <p>Made by <a href="https://YuriGuernsey.com" target="_blank" rel="noopener noreferrer">YuriGuernsey</a></p>
+    <p>©
+      <script>
+        document.write(new Date().getFullYear())
+      </script> SPFound</p>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/producthunt-floating-prompt/lib/producthunt-floating-prompt.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+  <script src="main.js" async defer></script>
+  <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</body>
+
+</html>
